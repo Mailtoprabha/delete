@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="Document">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="CstmrCdtTrfInitn">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="PmtInf" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ReqdExctnDt" type="xs:date" minOccurs="0"/>
+                                        <xs:element name="CdtTrfTxInf" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="PmtId">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="InstrId" type="xs:string" minOccurs="0"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Amt">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="InstdAmt">
+                                                                    <xs:complexType>
+                                                                        <xs:simpleContent>
+                                                                            <xs:extension base="xs:decimal">
+                                                                                <xs:attribute name="Ccy" type="xs:string" use="required"/>
+                                                                            </xs:extension>
+                                                                        </xs:simpleContent>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="DbtrAcct" type="xs:string" minOccurs="0"/>
+                                                    <xs:element name="CdtrAcct" type="xs:string" minOccurs="0"/>
+                                                    <xs:element name="RmtInf" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Ustrd" type="xs:string" minOccurs="0"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
